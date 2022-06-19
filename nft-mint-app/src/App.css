@@ -25,6 +25,7 @@
 }
 
 .App-link {
+  min-height: 50px;
   color: #61dafb;
 }
 
