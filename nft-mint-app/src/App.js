@@ -2,8 +2,11 @@ import './App.css';
 import Logo from "./logo.svg"
 import OnBoard from '@web3-onboard/core';
 import injectedModule from '@web3-onboard/injected-wallets';
+import async_hooks from 'node:async_hooks';
 import {useState} from "react";
 import { ethers } from 'ethers';
+import deploy from './scripts/deploy.js';
+
 const injected = injectedModule();
 const onboard = OnBoard({
   wallets: [injected],
@@ -46,6 +49,8 @@ function App() {
          });
         }}
         >Send</button>
+
+        <button  onClick={deploy}>Mint</button>
       </header>
     </div>
   );
