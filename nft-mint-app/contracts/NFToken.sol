@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract NFToken is ERC20, Ownable {
     uint256 private mintCount;
     uint256 public price;
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
+    constructor() ERC20("NFToken", "NFT") {
         mintCount = 0;
         price = 100000000000000000;
     }
