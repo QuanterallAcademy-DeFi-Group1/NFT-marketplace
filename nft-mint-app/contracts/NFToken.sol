@@ -1,35 +1,29 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity 0.8.13;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract NFToken is ERC20, Ownable {
-    uint256 private mintCount;
-    uint256 public price;
-    constructor() ERC20("NFToken", "NFT") {
-        mintCount = 0;
-        price = 100000000000000000;
+contract NFToken is ERC721URIStorage {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenId;
+    address marketAddress;
+    constructor(address market) ERC721("NFToken", "NFT") {
+        marketAddress = market;
     }
 
-    function mint(address account, uint256 amount) onlyOwner external returns(bool) {
-        _mint(account, amount);
-
-        mintCount++;
-
-        if(mintCount % 100 == 0){
-            price *= 2;
-        }else{
-            price += price * 1/100;
-        }
-
-        return true;
+    modifier onlyMarket (address minter) {
+        require(minter == marketAddress, "Only this NFT's market cant mint it");
+        _;
     }
 
-    function burn(address account, uint256 amount) onlyOwner external returns(bool) {
-        require(balanceOf(account) > 0, "Not enough balance");
+    function mint(string memory tokenUri, address toMint) public onlyMarket(msg.sender) returns(bool) {
+        _tokenId.increment();
+        uint256 newId = _tokenId.current();
+        _mint(toMint, newId);
+        _setTokenURI(newId, tokenUri);
 
-        _burn(account, amount);
         return true;
     }
 }
