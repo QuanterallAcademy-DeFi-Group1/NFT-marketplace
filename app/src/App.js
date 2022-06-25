@@ -6,6 +6,7 @@ import async_hooks from 'node:async_hooks';
 import {useState} from "react";
 import { ethers } from 'ethers';
 import deploy from './scripts/deploy.js';
+import UploadImage from './components/UploadImage.js';
 
 const injected = injectedModule();
 const onboard = OnBoard({
@@ -34,6 +35,7 @@ function App() {
   const [provider, setProvider] = useState(null);
   return (
     <div className="App">
+      <UploadImage/>
       <header className="App-header">
         <button className="App-link" onClick={async () => {
           const wallets = await onboard.connectWallet();
