@@ -7,8 +7,6 @@
 /.pnp
 .pnp.js
 
-# images
-/server/public/nfts
 
 # testing
 /app/coverage
