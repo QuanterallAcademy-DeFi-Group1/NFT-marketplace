@@ -4,6 +4,8 @@ import OnBoard from '@web3-onboard/core';
 import injectedModule from '@web3-onboard/injected-wallets';
 import {useState} from "react";
 import { ethers } from 'ethers';
+import UploadImage from './components/UploadImage.js';
+
 const injected = injectedModule();
 const onboard = OnBoard({
   wallets: [injected],
@@ -31,6 +33,7 @@ function App() {
   const [provider, setProvider] = useState(null);
   return (
     <div className="App">
+      <UploadImage/>
       <header className="App-header">
         <button className="App-link" onClick={async () => {
           const wallets = await onboard.connectWallet();
