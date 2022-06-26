@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/swap' element={<Swap />} />
         <Route path='/nft' element={<NFT />} />
-        <Route path='/team' element={<Team />} />
+        <Route path='/' element={<Team />} />
       </Routes>
     
     </div>
