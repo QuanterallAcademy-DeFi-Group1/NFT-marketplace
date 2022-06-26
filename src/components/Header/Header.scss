@@ -1,0 +1,36 @@
+.header-div{
+    background-color: black;
+    height: 60px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+
+    .header-grid{
+        color:white;
+        background-color: black;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        padding-left: 16px;
+        padding-right: 16px;
+        
+    }
+
+    .nav-buttons{
+        color:white;
+        /* font-family: 'Jost';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+        text-transform: capitalize; */
+    }
+
+    .connect-button{
+        background: linear-gradient(90deg, #FB6567 0%, #EC008B 101.5%);
+        border-radius: 30px;
+    }
+}
+
