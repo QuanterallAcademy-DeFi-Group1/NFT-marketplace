@@ -45,7 +45,7 @@ const Header = () => {
                     <Grid item={true} md={4}>
                         <Button className='nav-buttons' variant="text" component={Link} to="/Swap">Swap</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/NFT">NFT</Button>
-                        <Button className='nav-buttons' variant="text" component={Link} to="/Team">Team</Button>
+                        <Button className='nav-buttons' variant="text" component={Link} to="/">Team</Button>
                     </Grid>
 
                     <Grid item={true} md={6} container justifyContent="flex-end">
