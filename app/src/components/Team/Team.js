@@ -13,19 +13,19 @@ const Team = () => {
         {
             name: 'Nikolay Nikolaev',
             linkedin: "https://www.linkedin.com/in//",
-            github: "https://github.com/",
+            github: "https://github.com/NikolayNikolaev1",
             imgsrc: "https://i.pinimg.com/474x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg"
         },
         {
-            name: 'nyazadzhiev',
-            linkedin: "https://www.linkedin.com/in//",
-            github: "https://github.com/",
-            imgsrc: "https://i.pinimg.com/474x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg"
+            name: 'Niazi Yazadzhiev',
+            linkedin: "https://www.linkedin.com/in/niazi-yazadzhiev-942a6421b",
+            github: "https://github.com/nyazadzhiev",
+            imgsrc: "https://media-exp2.licdn.com/dms/image/D4E03AQGD2RkICOrGsg/profile-displayphoto-shrink_400_400/0/1631128288158?e=1661990400&v=beta&t=dBMgDLBTNi4n4X-HLbsalPajbtaiYwO21AwMgyM_huM"
         },
         {
             name: 'Filip Bozhkov',
-            linkedin: "https://www.linkedin.com/in//",
-            github: "https://github.com/",
+            linkedin: "https://www.linkedin.com/in/filip-bozhkov-27b4361b7/",
+            github: "https://github.com/fbozhkov",
             imgsrc: "https://avatars.githubusercontent.com/u/52756776?v=4"
         }
     ]
