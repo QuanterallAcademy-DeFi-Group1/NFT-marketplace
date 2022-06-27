@@ -1,3 +1,5 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Logo from "./logo.svg"
 import OnBoard from '@web3-onboard/core';
@@ -7,32 +9,14 @@ import {useState} from "react";
 import { ethers } from 'ethers';
 import deploy from './scripts/deploy.js';
 import UploadImage from './components/UploadImage.js';
+import Header from "./components/Header/Header"
+import Swap from './components/Swap/Swap';
+import NFT from './components/NFT/NFT';
+import Team from './components/Team/Team';
 
-const injected = injectedModule();
-const onboard = OnBoard({
-  wallets: [injected],
-  chains: [
-    {
-      id: "0x3",
-      token: "tROP",
-      label: "Etherieum Ropsten Testnet",
-      rpcUrl: 'https://ropsten.infura.io/v3/da99ebc8c0964bb8bb757b6f8cc40f1f'
-    },
-  ],
-  appMetadata: {
-    name: "Token Swap",
-    icon: Logo, // svg string icon
-    logo: Logo, // svg string logo
-    description: "Swap tokens for other tokens",
-    recommendedInjectedWallets: [ 
-      { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
-      { name: 'MetaMask', url: 'https://metamask.io' }
-    ]
-  }
-})
+
 
 function App() {
-  const [provider, setProvider] = useState(null);
   return (
     <div className="App">
       <UploadImage/>
@@ -54,6 +38,16 @@ function App() {
 
         <button  onClick={deploy}>Mint</button>
       </header>
+    <div>
+      <Header></Header>
+
+      <Routes>
+        <Route path='/swap' element={<Swap />} />
+        <Route path='/nft' element={<NFT />} />
+        <Route path='/' element={<Team />} />
+      </Routes>
+    
+    </div>
     </div>
   );
 }
