@@ -32,8 +32,8 @@ const Team = () => {
     return (
         <Box className="body">
             <Box className="banner">
-                <Typography className="text" variant="h2">
-                    Team
+                <Typography className="group-info" variant="h2">
+                    DeFi Quanterall Course - Team 1 Group
                 </Typography>
 
                 <div class="card-container">
