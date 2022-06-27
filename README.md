@@ -15,7 +15,7 @@ setup your api keys for Pinata and Alchemy APIs - create new .env file with this
 REACT_APP_PINATA_KEY = ""
 REACT_APP_PINATA_SECRET = ""
 REACT_APP_ALCHEMY_API_URL = "",
-REACT_APP_PINATA_SECRET = "" 
+REACT_APP_PRIVATE_KEY = "" 
 ```
 
 compile and run hardhat deploy 
@@ -23,8 +23,7 @@ compile and run hardhat deploy
 npx hardhat compile
 npx hardhat run --network goerli scripts/deploy.js
 ```
-## Server watermark image running
-
+## Run server watermark image
 cd in backend server folder
 ```
 cd server

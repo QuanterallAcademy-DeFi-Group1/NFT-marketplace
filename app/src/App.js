@@ -13,6 +13,10 @@ import Header from "./components/Header/Header"
 import Swap from './components/Swap/Swap';
 import NFT from './components/NFT/NFT';
 import Team from './components/Team/Team';
+import Marketplace from './components/Marketplace';
+import Profile from './components/Profile';
+import SellNFT from './components/SellNFT';
+import NFTPage from './components/NFTpage';
 
 
 
@@ -42,9 +46,11 @@ function App() {
       <Header></Header>
 
       <Routes>
-        <Route path='/swap' element={<Swap />} />
-        <Route path='/nft' element={<NFT />} />
+       
         <Route path='/' element={<Team />} />
+        <Route path="/nftPage" element={<NFTPage />}/>        
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/sellNFT" element={<SellNFT />}/>   
       </Routes>
     
     </div>
