@@ -7,7 +7,7 @@ require('hardhat-deploy');
 module.exports = {
   defaultNetwork: "hardhat",
   paths: {
-    artifacts: './src/artifacts',
+    artifacts: './artifacts',
   },
   solidity: "0.8.13",
 };
