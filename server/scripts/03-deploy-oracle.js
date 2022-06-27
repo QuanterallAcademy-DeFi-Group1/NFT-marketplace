@@ -10,10 +10,10 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         : VERIFICATION_BLOCK_CONFIRMATIONS
 
     log("----------------------------------------------------")
-    const args = []
-    const NFToken = await deploy("NFToken", {
+    const arguments = []
+    const oracle = await deploy("Oracle", {
         from: deployer,
-        args: args,
+        args: arguments,
         log: true,
         waitConfirmations: waitBlockConfirmations,
     })
@@ -21,9 +21,9 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     // Verify the deployment
     if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
         log("Verifying...")
-        await verify(NFToken.address, args)
+        await verify(oracle.address, arguments)
     }
     log("----------------------------------------------------")
 }
 
-module.exports.tags = ["all", "basicnft"]
+module.exports.tags = ["all", "nftmarketplace"]
