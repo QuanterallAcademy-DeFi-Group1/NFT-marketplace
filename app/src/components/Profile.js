@@ -4,6 +4,7 @@ import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
 import NFTTile from "./NFTTile";
+import "./Profile.scss";
 
 export default function Profile () {
     const [data, updateData] = useState([]);
@@ -61,7 +62,7 @@ export default function Profile () {
         getNFTData(tokenId);
 
     return (
-        <div className="profileClass" style={{"min-height":"100vh"}}>
+        <div className="container-nftpage" >
        
             <div className="profileClass">
             <div className="flex text-center flex-col mt-11 md:text-2xl text-white">

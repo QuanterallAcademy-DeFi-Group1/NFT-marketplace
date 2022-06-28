@@ -4,6 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
+import './NFTPage.scss';
 
 export default function NFTPage (props) {
 
@@ -72,7 +73,7 @@ async function buyNFT(tokenId) {
         getNFTData(tokenId);
 
     return(
-        <div minHeight="100vh">
+        <div className="container-nftpage">
     
             <div className="flex ml-20 mt-20">
                 <img src={data.image} alt="" className="w-2/5" />
@@ -84,7 +85,7 @@ async function buyNFT(tokenId) {
                         Description: {data.description}
                     </div>
                     <div>
-                        Price: <span className="">{data.price + " ETH"}</span>
+                        Price: <span className="">{data.price } ETH</span>
                     </div>
                     <div>
                         Owner: <span className="text-sm">{data.owner}</span>

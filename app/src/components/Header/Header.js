@@ -46,7 +46,6 @@ const Header = () => {
                 
                         <Button className='nav-buttons' variant="text" component={Link} to="/">Team</Button>
                          <Button className='nav-buttons' variant="text" component={Link} to="/profile">Profile</Button>
-                        <Button className='nav-buttons' variant="text" component={Link} to="/nftPage">NFT page</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/sellNFT">Sell NFT</Button>
                     </Grid>
 
