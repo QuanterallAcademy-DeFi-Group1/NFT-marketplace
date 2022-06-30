@@ -1,5 +1,6 @@
-import { Typography, Box } from "@mui/material";
+// import { Typography, Box } from "@mui/material";
 import React from "react";
+import Header from "../Header/Header";
 import './Team.scss';
 
 const Team = () => {
@@ -12,9 +13,9 @@ const Team = () => {
         },
         {
             name: 'Nikolay Nikolaev',
-            linkedin: "https://www.linkedin.com/in//",
+            linkedin: "https://www.linkedin.com/in/nikolay-nikolaev-dev/",
             github: "https://github.com/NikolayNikolaev1",
-            imgsrc: "https://i.pinimg.com/474x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg"
+            imgsrc: "https://media-exp2.licdn.com/dms/image/C5603AQGYmbqOKaL-3A/profile-displayphoto-shrink_400_400/0/1547654969979?e=1661990400&v=beta&t=Rk_xmvVuLlgQ3D3CX2ipqlBlmrH3OBd0MySjx9QTgaM"
         },
         {
             name: 'Niazi Yazadzhiev',
@@ -30,13 +31,16 @@ const Team = () => {
         }
     ]
     return (
-        <Box className="body">
-            <Box className="banner">
-                <Typography className="group-info" variant="h2">
-                    DeFi Quanterall Course - Team 1 Group
-                </Typography>
+        // <Box className="body">
+        //     <Box className="banner">
+        //         <Typography className="group-info" variant="h2">
+        //             DeFi Quanterall Course - Team 1 Group
+        //         </Typography>
 
-                <div class="card-container">
+        <div class="body">
+                <div class="banner">
+                    <Header></Header>
+                    <button>team</button>
                     {
                         teamMembers.map(item => {
                             return <div className="card">
@@ -58,9 +62,10 @@ const Team = () => {
                         })
                     }
                 </div>
-            </Box>
+                </div>
+        //     </Box>
 
-        </Box>
+        // </Box>
 
     );
 }
