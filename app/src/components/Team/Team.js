@@ -12,9 +12,9 @@ const Team = () => {
         },
         {
             name: 'Nikolay Nikolaev',
-            linkedin: "https://www.linkedin.com/in//",
+            linkedin: "https://www.linkedin.com/in/nikolay-nikolaev-dev/",
             github: "https://github.com/NikolayNikolaev1",
-            imgsrc: "https://i.pinimg.com/474x/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.jpg"
+            imgsrc: "https://media-exp2.licdn.com/dms/image/C5603AQGYmbqOKaL-3A/profile-displayphoto-shrink_400_400/0/1547654969979?e=1662595200&v=beta&t=lPorw6w-3wJwb7-ZKiNdbtiwx6ZeY1DnhAji4zQ82uI"
         },
         {
             name: 'Niazi Yazadzhiev',
@@ -33,7 +33,7 @@ const Team = () => {
         <Box className="body">
             <Box className="banner">
                 <Typography className="group-info" variant="h2">
-                    DeFi Quanterall Course - Team 1 Group
+                    DeFi Quanterall Course - Team 1
                 </Typography>
 
                 <div class="card-container">
