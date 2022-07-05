@@ -1,4 +1,10 @@
 # DeFi project
+
+## Demo screenshots
+
+```
+open app/demo folder to see some pages in action
+```
 ## React frontend running
 cd in frontend app folder
 ```
@@ -11,7 +17,9 @@ npm install --force
 ```
 
 setup your api keys for Pinata and Alchemy APIs - create new .env file with this content
+Use goerli test network to have pinata API working
 ```
+I have made a setup with own private key and alchemy project and pinata api keys
 REACT_APP_PINATA_KEY = ""
 REACT_APP_PINATA_SECRET = ""
 REACT_APP_ALCHEMY_API_URL = "",
@@ -22,6 +30,7 @@ compile and run hardhat deploy
 ```
 npx hardhat compile
 ```
+
 ## Run server watermark image
 cd in backend server folder
 ```
