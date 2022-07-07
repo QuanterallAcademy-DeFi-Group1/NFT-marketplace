@@ -57,7 +57,7 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
                 } else {
                     sec_img.opacity(0.2)
                     fir_img.composite(sec_img, 12, 12, [Jimp.BLEND_DESTINATION_OVER])
-                    fir_img.write(`./public/watermarked-${imagefilename}`)
+                   /*  fir_img.write(`./public/watermarked-${imagefilename}`) */
                 }
             })
         }
