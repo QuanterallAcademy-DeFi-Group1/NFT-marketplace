@@ -43,7 +43,7 @@ const Header = () => {
                     </Grid>
                     
                     <Grid item={true} md={4}>
-                        {/* <Button className='nav-buttons' variant="text" component={Link} to="/NFT">NFT</Button> */}
+                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Watermark</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/team">Team</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/profile">Profile</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/sellNFT">Sell NFT</Button>

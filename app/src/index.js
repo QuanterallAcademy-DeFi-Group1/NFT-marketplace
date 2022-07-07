@@ -25,7 +25,7 @@ root.render(
         <Route path="/" element={<Marketplace />}/>
         <Route path="/team" element={<Team />}/>
         <Route path="/sellNFT" element={<SellNFT />}/>  
-        {/* <Route path='/nft' element={<NFT />} /> */}
+        <Route path='/nft' element={<NFT />} />
         <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
         <Route path="/profile" element={<Profile />}/> 
       </Routes>
