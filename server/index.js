@@ -1,4 +1,6 @@
 const express = require('express');
+const publicPath = path.join(__dirname, '..', 'public');
+const buildPath = path.join(__dirname, '..', 'build');
 const app = express();
 const cors = require("cors");
 const multer = require('multer');
@@ -8,7 +10,11 @@ const Jimp = require('jimp');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const corsOrigin = 'http://localhost:1337';
+app.use(express.static(buildPath));
+app.get("/*", function(req, res) {
+    res.sendFile(path.join(buildPath, "index.html"));
+});
+
 app.use(cors({
     origin: [corsOrigin],
     methods: ['GET', 'POST'],
@@ -55,7 +61,7 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
     });
 })
 
-const port = 1337;
+const port = process.env.PORT || 1337;
 app.listen(port, process.env.IP, function () {
     console.log(`Server is running on port ${port}`);
 });
