@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import UploadImage from './components/UploadImage.js';
 import Header from "./components/Header/Header"
 import Swap from './components/Swap/Swap';
@@ -18,13 +17,13 @@ function App() {
     <div className="App">
       
       <Header></Header>
-
-      <Routes>      
-          <Route path="/profile" element={<Profile />}/>
-          <Route path="/sellNFT" element={<SellNFT />}/>   
-        <Route path='/nft' element={<NFT />} />
-        <Route path='/team' element={<Team />} />
+      <Routes>
         <Route path="/" element={<Marketplace />}/>
+        <Route path="/team" element={<Team />}/>
+        <Route path="/sellNFT" element={<SellNFT />}/>  
+        <Route path='/nft' element={<NFT />} />
+        <Route path="/nftPage/:tokenId" element={<NFTPage />}/>        
+        <Route path="/profile" element={<Profile />}/> 
       </Routes>
     </div>
   );

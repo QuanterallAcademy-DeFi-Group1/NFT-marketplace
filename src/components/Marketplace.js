@@ -1,5 +1,7 @@
-
+import { Typography, Box, Grid} from "@mui/material";
+import './Marketplace.scss';
 import NFTTile from "./NFTTile";
+import NFTcard from "./NFTcard";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
@@ -73,20 +75,27 @@ async function getAllNFTs() {
 if(!dataFetched)
     getAllNFTs();
 
+
+
 return (
-    <div>
-      
-        <div className="flex flex-col place-items-center mt-20">
-            <div className="md:text-xl font-bold text-white">
-                Top NFTs
-            </div>
-            <div className="flex mt-5 justify-between flex-wrap max-w-screen-xl text-center">
-                {data.map((value, index) => {
-                    return <NFTTile data={value} key={index}></NFTTile>;
-                })}
-            </div>
-        </div>            
-    </div>
+    <Box className="body-marketplace">
+        <Box className="banner">
+            <Box className="top-nfts">
+                <Typography className="text">
+                    Top NFTs
+                </Typography>
+            </Box>
+            <Box className="nft-grid">
+                <Grid container={true} spacing={2}>   
+                    {data.map((value, index) => {
+                    return <Grid item xs={12} sm={6} md={4}>
+                            <NFTcard data={value} key={index}></NFTcard>
+                        </Grid>
+                    })}    
+                </Grid>
+            </Box>
+        </Box>
+    </Box>
 );
 
 }
