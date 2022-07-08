@@ -16,7 +16,7 @@ function NFTcard (data) {
     } //pass the path to <CardActionArea>
     return (
         <Card sx={{ maxWidth: 345 }} className="nft-card">
-            <CardActionArea> 
+            <CardActionArea component={Link} to={newTo}> 
                 <CardMedia
                 component="img"
                 height="345"
