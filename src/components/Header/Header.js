@@ -42,14 +42,15 @@ const Header = () => {
                         </Typography>
                     </Grid>
                     
-                    <Grid item={true} md={4}>
-                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Watermark</Button>
+                    <Grid item={true} md={6}>
+                        <Button className='nav-buttons' variant="text" component={Link} to="/">Marketplace</Button>
+                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Waterrmark</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/team">Team</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/profile">Profile</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/sellNFT">Sell NFT</Button>
                     </Grid>
 
-                    <Grid item={true} md={6} container justifyContent="flex-end">
+                    <Grid item={true} md={4} container justifyContent="flex-end">
                         <Button className='connect-button' variant="contained" onClick={async () => {
                             console.log("connect clicked")
                             const wallets = await onboard.connectWallet();
