@@ -23,7 +23,7 @@ const onboard = OnBoard({
     icon: Logo, // svg string icon
     logo: Logo, // svg string logo
     description: "Swap tokens for other tokens",
-    recommendedInjectedWallets: [ 
+    recommendedInjectedWallets: [
       { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
       { name: 'MetaMask', url: 'https://metamask.io' }
     ]
@@ -41,10 +41,10 @@ const Header = () => {
                             Project Defi
                         </Typography>
                     </Grid>
-                    
+
                     <Grid item={true} md={6}>
                         <Button className='nav-buttons' variant="text" component={Link} to="/">Marketplace</Button>
-                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Waterrmark</Button>
+                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Watermark</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/team">Team</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/profile">Profile</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/sellNFT">Sell NFT</Button>
