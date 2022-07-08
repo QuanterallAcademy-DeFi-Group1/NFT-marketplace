@@ -1,5 +1,12 @@
 # DeFi project Nft Marketplace
 
+# It is deployed in Heroku stage
+https://defi-quanterall-group.herokuapp.com/
+```
+First connect your wallet to the Goerli testnet from the "Connect Wallet" button.
+In order to use marketplace nft's :)
+```
+
 ## In the server folder there is initial implementation of the contracts with needed functionality from the task assigment
 https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contracts
 
@@ -19,9 +26,9 @@ Use goerli test network to have pinata API working
 NOTE: I have made a setup with own private key, alchemy project and pinata api keys in .env file
 
 --
-compile and run hardhat deploy   
+compile and run hardhat deploy
 1.    cd app
-2.    npx hardhat compile   
+2.    npx hardhat compile
 3.    npx run scripts/deploy.js
 ```
 
