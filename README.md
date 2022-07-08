@@ -13,7 +13,7 @@ https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contrac
 ## We have also frontend React app with initial view of the nft marketplace running
 ### Here are the demo screenshots of the nft marketplace in the frontend app folder
 
-<img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/app/demo/view%20nfts.png?raw=true" alt="view nft marketplace" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/app/demo/list%20nft.png?raw=true" alt="sell nft" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/app/demo/view%20selected%20nft.png?raw=true" alt="view selected" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/app/demo/group%201.png?raw=true" alt="developers" width="200">
+<img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/view%20nfts.png?raw=true" alt="view nft marketplace" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/list%20nft.png?raw=true" alt="sell nft" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/view%20selected%20nft.png?raw=true" alt="view selected" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/group%201.png?raw=true" alt="developers" width="200">
 
 
 ## Run React frontend
