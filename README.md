@@ -18,25 +18,18 @@ https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contrac
 
 ## Run local React frontend
 ```
-cd app
 npm install
+npx hardhat compile
+npm run start-client
 --
 setup your api keys for Pinata and Alchemy APIs - in the app/.env file
 Use goerli test network to have pinata API working
 NOTE: I have made a setup with own private key, alchemy project and pinata api keys in .env file
-
---
-compile and run hardhat deploy
-1.    cd app
-2.    npx hardhat compile
-3.    optional:  -  npx run scripts/deploy.js
-4.    npm run start-client
 ```
 
-## We have server app that watermarks the images
+## We have server app that watermarks the images running on port 1337
 
 ```
-cd server
-
-npm install --force
+npm install 
+npm start
 ```
