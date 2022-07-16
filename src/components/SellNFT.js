@@ -18,14 +18,20 @@ export default function SellNFT() {
         console.log("data", file);
         //check for file extension
         try {
-            const response = await axios
+            const watermarked = await axios
                 .post('http://localhost:1337/image-upload', file)
                 .then(res => {
                     console.log('Axios response: ', res)
+                    const response = await uploadFileToIPFS(file);
+                    console.log(response)
+                    if(response.success === true) {
+                        console.log("Uploaded image to Pinata: ", response.pinataURL)
+                        setFileURL(response.pinataURL);
+                    }
                 });
-            if (response?.success === true) {
-                console.log("Uploaded image to Pinata: ", response)
-                setFileURL(response);
+            if (watermarked?.success === true) {
+                console.log("Uploaded image to Pinata: ", watermarked)
+                setFileURL(watermarked);
             }
         }
         catch (e) {
