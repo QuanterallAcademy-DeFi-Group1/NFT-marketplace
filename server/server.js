@@ -51,17 +51,23 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            Jimp.read(`./public/logo/logo.jpg`, (err, sec_img) => {
+            Jimp.read(`./public/logo/logo.png`, (err, sec_img) => {
                 if (err) {
                     console.log(err);
                 } else {
                     sec_img.opacity(0.2)
-                    fir_img.composite(sec_img, 12, 12, [Jimp.BLEND_DESTINATION_OVER])
-                   /*  fir_img.write(`./public/watermarked-${imagefilename}`) */
+                    fir_img.composite(sec_img, 100, 100, [Jimp.BLEND_DESTINATION_OVER])
+                    fir_img.write(`./public/watermarked-${imagefilename}`)
                 }
-            })
+            });
+
+            setTimeout(function () {
+                res.sendFile(path.join(__dirname, `../server/public/watermarked-${imagefilename}`));
+            }, 3000);
         }
     });
+
+
 })
 
 const port = process.env.PORT || 1337;
