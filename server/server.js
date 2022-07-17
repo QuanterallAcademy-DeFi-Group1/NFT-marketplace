@@ -50,8 +50,7 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
 
     console.log('POST request received to /image-upload.');
     console.log('Axios POST body: ', req.body);
-    file = req.body;
-    console.log("pretty file", file);
+    file = res.body;
 
     Jimp.read(`./public/nfts/${imagefilename}`, (err, fir_img) => {
         if (err) {

@@ -18,6 +18,7 @@ https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contrac
 
 ## Run local React frontend & backend for watermarking together
 ```
+npm run build
 npm start
 --
 setup your api keys for Pinata and Alchemy APIs - in the app/.env file
