@@ -16,20 +16,12 @@ https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contrac
 <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/view%20nfts.png?raw=true" alt="view nft marketplace" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/list%20nft.png?raw=true" alt="sell nft" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/view%20selected%20nft.png?raw=true" alt="view selected" width="200"> <img src="https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/demo/group%201.png?raw=true" alt="developers" width="200">
 
 
-## Run local React frontend
+## Run local React frontend & backend for watermarking together
 ```
-npm install
-npx hardhat compile
-npm run start-client
+npm start
 --
 setup your api keys for Pinata and Alchemy APIs - in the app/.env file
 Use goerli test network to have pinata API working
 NOTE: I have made a setup with own private key, alchemy project and pinata api keys in .env file
 ```
 
-## We have server app that watermarks the images running on port 1337
-
-```
-npm install 
-npm start
-```
