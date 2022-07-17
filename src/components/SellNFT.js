@@ -27,13 +27,13 @@ export default function SellNFT() {
                 url: 'http://localhost:1337/image-upload',
                 data: form,
                 headers: {
-                    'Content-Disposition' : `form-data; name="my-image-file";filename="${file.name}"`,
+                    'Content-Disposition' : `form-data; name="my-image-file""`,
                     'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
                 },
             });
             if (response?.success === true) {
-                console.log("this file here", response)
-                var pinataResponse = await uploadFileToIPFS(file);
+                console.log("this file here", response.body)
+                var pinataResponse = await uploadFileToIPFS(response.body);
                 console.log(pinataResponse)
                 
                 if (pinataResponse?.success == true) {

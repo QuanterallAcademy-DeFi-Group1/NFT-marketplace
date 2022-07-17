@@ -66,7 +66,13 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
                     fir_img.composite(sec_img, 0, 0, [Jimp.VERTICAL_ALIGN_BOTTOM, Jimp.HORIZONTAL_ALIGN_RIGHT])
                     fir_img.write(`./public/watermarked-${imagefilename}`)
                     setTimeout(() => {
-                        return   res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+                        res.download(__dirname + `/public/watermarked-${imagefilename}`);
+                        res.status(200);
+                        return res;
+                    //     res.attachment(imagefilename);
+                    //    return  res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+            
+                        // return   res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
                       }, 1000)
                     
                 }
