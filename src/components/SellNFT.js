@@ -24,7 +24,7 @@ export default function SellNFT() {
 
             const response = await axios({
                 method: 'post',
-                url: 'http://localhost:1337/image-upload',
+                url: 'https://defi-quanterall-group.herokuapp.com/image-upload',
                 data: form,
                 headers: {
                     'Content-Disposition': `form-data; name="my-image-file""`,
