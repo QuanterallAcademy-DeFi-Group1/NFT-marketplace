@@ -27,20 +27,17 @@ export default function SellNFT() {
                 url: 'http://localhost:1337/image-upload',
                 data: form,
                 headers: {
-                    'Content-Disposition' : `form-data; name="my-image-file""`,
+                    'Content-Disposition': `form-data; name="my-image-file""`,
                     'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
                 },
             });
-            if (response?.success === true) {
-                console.log("this file here", response.body)
-                var pinataResponse = await uploadFileToIPFS(response.body);
-                console.log(pinataResponse)
-                
-                if (pinataResponse?.success == true) {
-                    console.log("Uploaded image to Pinata: ", pinataResponse)
-                    setFileURL(pinataResponse);
+            console.log("file content", response);
+                if (response?.statusText === "OK") {
+
+                    console.log("this file here", response.data)
+                    return waitForIt(response.data);
+
                 }
-            }
             // var bodyFormData = new FormData();
             // bodyFormData.append('my-image-file', file);
             // const watermarked = await axios
@@ -70,7 +67,7 @@ export default function SellNFT() {
 
     //This function uploads the metadata to IPDS
     async function uploadMetadataToIPFS() {
-        const { name, description, price } = formParams;
+        const { name = "random name", description = "random description", price = 0.01 } = formParams;
         //Make sure that none of the fields are empty
         if (!name || !description || !price || !fileURL)
             return;
@@ -100,7 +97,7 @@ export default function SellNFT() {
             const metadataURL = await uploadMetadataToIPFS();
             //After adding your Hardhat network to your metamask, this code will get providers and signers
             const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
+            const signer = provider?.getSigner();
             updateMessage("Please wait.. uploading (upto 5 mins)")
 
             //Pull the deployed contract instance
@@ -133,15 +130,15 @@ export default function SellNFT() {
                     <h3 className="text-center font-bold text-purple-500 mb-8">Upload your NFT to the marketplace</h3>
                     <div className="mb-4">
                         <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="name">NFT Name</label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Axie#4563" onChange={e => updateFormParams({ ...formParams, name: e.target.value })} value={formParams.name}></input>
+                        <input defaultValue="example name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Axie#4563" onChange={e => updateFormParams({ ...formParams, name: e.target.value })} value={formParams.name}></input>
                     </div>
                     <div className="mb-6">
                         <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="description">NFT Description</label>
-                        <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols="40" rows="5" id="description" type="text" placeholder="Axie Infinity Collection" value={formParams.description} onChange={e => updateFormParams({ ...formParams, description: e.target.value })}></textarea>
+                        <textarea defaultValue="example description" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" cols="40" rows="5" id="description" type="text" placeholder="Axie Infinity Collection" value={formParams.description} onChange={e => updateFormParams({ ...formParams, description: e.target.value })}></textarea>
                     </div>
                     <div className="mb-6">
                         <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="price">Price (in ETH)</label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Min 0.01 ETH" value={formParams.price} onChange={e => updateFormParams({ ...formParams, price: e.target.value })}></input>
+                        <input defaultValue={0.01} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Min 0.01 ETH" value={formParams.price} onChange={e => updateFormParams({ ...formParams, price: e.target.value })}></input>
                     </div>
                     <div>
                         <label className="block text-purple-500 text-sm font-bold mb-2" htmlFor="image">Upload Image</label>

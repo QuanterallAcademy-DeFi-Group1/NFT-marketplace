@@ -45,7 +45,7 @@ export const uploadFileToIPFS = async(file) => {
         }
     });
     data.append('pinataMetadata', metadata);
-
+    
     //pinataOptions are optional
     const pinataOptions = JSON.stringify({
         cidVersion: 0,
@@ -63,6 +63,7 @@ export const uploadFileToIPFS = async(file) => {
         }
     });
     data.append('pinataOptions', pinataOptions);
+    console.log("data", data)
 
     return axios 
         .post(url, data, {
