@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require ('path');
+const path = require('path');
 const publicPath = path.join(__dirname, '..', 'public');
 const buildPath = path.join(__dirname, '..', 'build');
 const app = express();
@@ -7,12 +7,14 @@ const cors = require("cors");
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const Jimp = require('jimp');
+const fs = require('fs')
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(buildPath));
-app.get("/*", function(req, res) {
+app.get("/*", function (req, res) {
     res.sendFile(path.join(buildPath, "index.html"));
 });
 
@@ -37,6 +39,7 @@ const storage = multer.diskStorage({
     }
 })
 
+
 const imageUpload = multer({ storage: storage })
 
 app.get('/image-view/:name', (req, res) => {
@@ -44,8 +47,10 @@ app.get('/image-view/:name', (req, res) => {
 })
 
 app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
+
     console.log('POST request received to /image-upload.');
     console.log('Axios POST body: ', req.body);
+    file = res.body;
 
     Jimp.read(`./public/nfts/${imagefilename}`, (err, fir_img) => {
         if (err) {
@@ -55,20 +60,29 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    sec_img.opacity(0.2)
-                    fir_img.composite(sec_img, 100, 100, [Jimp.BLEND_DESTINATION_OVER])
+                    sec_img.opacity(0.5)
+
+                    fir_img.composite(sec_img, 0, 0, [Jimp.VERTICAL_ALIGN_BOTTOM, Jimp.HORIZONTAL_ALIGN_RIGHT])
                     fir_img.write(`./public/watermarked-${imagefilename}`)
+                    setTimeout(() => {
+                        res.download(__dirname + `/public/watermarked-${imagefilename}`);
+                        res.status(200);
+                        return res;
+                    //     res.attachment(imagefilename);
+                    //    return  res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+            
+                        // return   res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+                      }, 1000)
+                    
                 }
             });
 
-            setTimeout(function () {
-                res.sendFile(path.join(__dirname, `../server/public/watermarked-${imagefilename}`));
-            }, 3000);
         }
     });
 
 
 })
+
 
 const port = process.env.PORT || 1337;
 app.listen(port, process.env.IP, function () {
