@@ -14,6 +14,7 @@ export default function SellNFT () {
     //This function uploads the NFT image to IPFS
     async function OnChangeFile(e) {
         var file = e.target.files[0];
+        console.log("data", file);
         //check for file extension
         try {
             //upload the file to IPFS
