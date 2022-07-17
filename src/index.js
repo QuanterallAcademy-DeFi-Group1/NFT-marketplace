@@ -8,13 +8,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import SellNFT from './components/SellNFT';
-import Marketplace from './components/Marketplace';
-import Profile from './components/Profile';
-import NFTPage from './components/NFTpage';
-import Header from "./components/Header/Header"
-import NFT from './components/NFT/NFT';
-import Team from './components/Team/Team';
 
 ReactDOM.render(
   <React.StrictMode>
