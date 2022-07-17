@@ -18,26 +18,54 @@ export default function SellNFT() {
         console.log("data", file);
         //check for file extension
         try {
-            const watermarked = await axios
-                .post('http://localhost:1337/image-upload', file)
-                .then(res => {
-                    console.log('Axios response: ', res)
-                    const response = await uploadFileToIPFS(file);
-                    console.log(response)
-                    if(response.success === true) {
-                        console.log("Uploaded image to Pinata: ", response.pinataURL)
-                        setFileURL(response.pinataURL);
-                    }
-                });
-            if (watermarked?.success === true) {
-                console.log("Uploaded image to Pinata: ", watermarked)
-                setFileURL(watermarked);
+            const form = new FormData();
+            form.append('my-image-file', file);
+            // console.log("filename", file.name);
+
+            const response = await axios({
+                method: 'post',
+                url: 'http://localhost:1337/image-upload',
+                data: form,
+                headers: {
+                    'Content-Disposition' : `form-data; name="my-image-file";filename="${file.name}"`,
+                    'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+                },
+            });
+            if (response?.success === true) {
+                console.log("this file here", response)
+                var pinataResponse = await uploadFileToIPFS(file);
+                console.log(pinataResponse)
+                
+                if (pinataResponse?.success == true) {
+                    console.log("Uploaded image to Pinata: ", pinataResponse)
+                    setFileURL(pinataResponse);
+                }
             }
+            // var bodyFormData = new FormData();
+            // bodyFormData.append('my-image-file', file);
+            // const watermarked = await axios
+            //     .post('http://localhost:1337/image-upload', bodyFormData)
+            //     .then(res => {
+            //         console.log('Axios response: ', res)
+            //         waitForIt(file)
+            //     });
+            // if (watermarked?.success === true) {
+            //     console.log("Uploaded image to Pinata: ", watermarked)
+            //     setFileURL(watermarked);
+            // }
         }
         catch (e) {
             console.log("Error during file upload", e);
         }
 
+    }
+    async function waitForIt(file) {
+        const response = await uploadFileToIPFS(file);
+        console.log(response)
+        if (response.success === true) {
+            console.log("Uploaded image to Pinata: ", response.pinataURL)
+            setFileURL(response.pinataURL);
+        }
     }
 
     //This function uploads the metadata to IPDS
@@ -97,7 +125,6 @@ export default function SellNFT() {
         }
     }
 
-    console.log("Working", process.env);
     return (
         <div className="">
 
