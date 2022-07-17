@@ -30,26 +30,15 @@ export default function SellNFT() {
                     'Content-Disposition': `form-data; name="my-image-file""`,
                     'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
                 },
+                responseType: 'blob'
             });
             console.log("file content", response);
                 if (response?.statusText === "OK") {
-
+                  
                     console.log("this file here", response.data)
                     return waitForIt(response.data);
 
                 }
-            // var bodyFormData = new FormData();
-            // bodyFormData.append('my-image-file', file);
-            // const watermarked = await axios
-            //     .post('http://localhost:1337/image-upload', bodyFormData)
-            //     .then(res => {
-            //         console.log('Axios response: ', res)
-            //         waitForIt(file)
-            //     });
-            // if (watermarked?.success === true) {
-            //     console.log("Uploaded image to Pinata: ", watermarked)
-            //     setFileURL(watermarked);
-            // }
         }
         catch (e) {
             console.log("Error during file upload", e);

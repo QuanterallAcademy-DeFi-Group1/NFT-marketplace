@@ -44,7 +44,6 @@ const Header = () => {
 
                     <Grid item={true} md={6}>
                         <Button className='nav-buttons' variant="text" component={Link} to="/">Marketplace</Button>
-                        <Button className='nav-buttons' variant="text" component={Link} to="/NFT">Watermark</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/team">Team</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/profile">Profile</Button>
                         <Button className='nav-buttons' variant="text" component={Link} to="/sellNFT">Sell NFT</Button>
