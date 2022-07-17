@@ -47,8 +47,11 @@ app.get('/image-view/:name', (req, res) => {
 })
 
 app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
+
     console.log('POST request received to /image-upload.');
     console.log('Axios POST body: ', req.body);
+    file = req.body;
+    console.log("pretty file", file);
 
     Jimp.read(`./public/nfts/${imagefilename}`, (err, fir_img) => {
         if (err) {
@@ -62,7 +65,10 @@ app.post('/image-upload', imageUpload.array("my-image-file"), (req, res) => {
 
                     fir_img.composite(sec_img, 0, 0, [Jimp.VERTICAL_ALIGN_BOTTOM, Jimp.HORIZONTAL_ALIGN_RIGHT])
                     fir_img.write(`./public/watermarked-${imagefilename}`)
-                    return   res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+                    setTimeout(() => {
+                        return   res.sendFile(__dirname + `/public/watermarked-${imagefilename}`);
+                      }, 1000)
+                    
                 }
             });
 
