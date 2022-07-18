@@ -1,9 +1,19 @@
-.nft-card{
+.nft-card {
     margin-top: 16px;
-        
 
-    .nft-card-text{
+
+    .nft-card-name {
+        color: black;
+        margin-left: 1%;
+        margin-bottom: 10%;
+    }
+
+    .nft-card-price {
         color: black
     }
-}
 
+    .eth-icon {
+        height: 1em;
+        width: 1em;
+    }
+}

@@ -9,11 +9,15 @@ import {
     BrowserRouter as Router,
     Link,
   } from "react-router-dom";
+import "../ethereum-1.svg";
+import SvgIcon from '@mui/material/SvgIcon';
+import { ReactComponent as ETHicon } from "../ethereum-1.svg";
+
 
 function NFTcard (data) {
     const newTo = {
         pathname:"/nftPage/"+data.data.tokenId
-    } //pass the path to <CardActionArea>
+    } 
     return (
         <Card sx={{ maxWidth: 345 }} className="nft-card">
             <CardActionArea component={Link} to={newTo}> 
@@ -24,11 +28,11 @@ function NFTcard (data) {
                 alt=""
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="div" className="nft-card-text">
+                <Typography gutterBottom variant="h5" component="div" className="nft-card-name">
                     {data.data.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" className="nft-card-text">
-                    {data.data.description}
+                <Typography variant="body2" color="text.secondary" className="nft-card-price">
+                <ETHicon className="eth-icon" /> {data.data.price}
                 </Typography>
                 </CardContent>
             </CardActionArea>
