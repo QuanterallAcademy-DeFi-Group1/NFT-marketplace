@@ -6,7 +6,7 @@ function UploadImage() {
 
     const handleClick = () => {
         axios
-            .post('https://defi-quanterall-group.herokuapp.com/image-upload', image)
+            .post('http://localhost:1337/image-upload', image)
             .then(res => {
                 console.log('Axios response: ', res)
             });
