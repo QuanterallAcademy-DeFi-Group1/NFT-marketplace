@@ -20,9 +20,5 @@ https://github.com/DeFi-Group1/nft-mint-final-assigment/tree/main/server/contrac
 ```
 npm run build
 npm start
---
-setup your api keys for Pinata and Alchemy APIs - in the app/.env file
-Use goerli test network to have pinata API working
-NOTE: I have made a setup with own private key, alchemy project and pinata api keys in .env file
 ```
 
