@@ -11,6 +11,7 @@ export default function SellNFT() {
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
     const location = useLocation();
+    const [isDisabled, setDisabled] = useState(true);
 
     //This function uploads the NFT image to IPFS
     async function OnChangeFile(e) {
@@ -24,7 +25,7 @@ export default function SellNFT() {
 
             const response = await axios({
                 method: 'post',
-                url: 'https://defi-quanterall-group.herokuapp.com/image-upload',
+                url: 'http://localhost:1337/image-upload', // 'http://localhost:1337/image-upload' 'https://defi-quanterall-group.herokuapp.com/image-upload'
                 data: form,
                 headers: {
                     'Content-Disposition': `form-data; name="my-image-file""`,
@@ -42,6 +43,7 @@ export default function SellNFT() {
         }
         catch (e) {
             console.log("Error during file upload", e);
+            alert("Error during file upload");
         }
 
     }
@@ -49,6 +51,7 @@ export default function SellNFT() {
         const response = await uploadFileToIPFS(file);
         console.log(response)
         if (response.success === true) {
+            setDisabled(false);
             console.log("Uploaded image to Pinata: ", response.pinataURL)
             setFileURL(response.pinataURL);
         }
@@ -69,7 +72,7 @@ export default function SellNFT() {
             //upload the metadata JSON to IPFS
             const response = await uploadJSONToIPFS(nftJSON);
             if (response.success === true) {
-                console.log("Uploaded JSON to Pinata: ", response)
+                console.log("Uploaded JSON to Pinata: ", response);
                 return response.pinataURL;
             }
         }
@@ -135,7 +138,7 @@ export default function SellNFT() {
                     </div>
                     <br></br>
                     <div className="text-green text-center">{message}</div>
-                    <button onClick={listNFT} className="font-bold mt-10 w-full bg-purple-500 text-white rounded p-2 shadow-lg">
+                    <button disabled={isDisabled} onClick={listNFT} className="font-bold mt-10 w-full bg-purple-500 text-white rounded p-2 shadow-lg">
                         List NFT
                     </button>
                 </form>
