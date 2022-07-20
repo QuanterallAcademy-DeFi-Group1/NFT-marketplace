@@ -5,21 +5,16 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 
+
 const Header = () => {
 
-  const [connected, toggleConnect] = useState(false);
+  const [connectState, setConnectedState] = React.useState(localStorage.getItem('connected-mode') === 'true');
+  const [data, setData] = useState(false);
 
-  const [currAddress, updateAddress] = useState('0x');
-
-  async function getAddress() {
-    const ethers = require("ethers");
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const addr = await signer.getAddress();
-    updateAddress(addr);
-  }
-
-
+  React.useEffect(() => {
+    connectState ? localStorage.setItem('connected-mode', true) : localStorage.setItem('connected-mode', false);
+    localStorage.setItem('connected-mode', connectState);
+  }, [connectState]);
 
   async function connectWebsite() {
 
@@ -33,24 +28,12 @@ const Header = () => {
     }
     await window.ethereum.request({ method: 'eth_requestAccounts' })
       .then(() => {
-        toggleConnect(true);
-        console.log("here");
-        getAddress();
+        window.ethereum.isConnected() ? localStorage.setItem('connected-mode', true) : localStorage.setItem('connected-mode', false);
+        setConnectedState(true);
+        console.log("eth request");
       });
   }
-
-
-  useEffect(() => {
-    let val = window.ethereum.isConnected();
-    toggleConnect(val);
-    if (val) {
-      getAddress();
-      toggleConnect(val);
-    }
-
-
-  });
-
+  
   return (
     <Box className='header-div'>
       <Box className='header-grid'>
@@ -70,12 +53,8 @@ const Header = () => {
 
           <Grid item={true} md={4} container justifyContent="flex-end">
             <Button
-              className='enableEthereumButton connect-button' variant="contained"
-              textContent={window.ethereum.isConnected() ? "Connected" : "Connect Wallet"}
-              onClick={connectWebsite}>
-              {
-                  window.ethereum.isConnected() ? "Connected" : "Connect Wallet"
-              }
+              className='connect-button' variant="contained"
+              onClick={connectWebsite}> {connectState ? "Connected" : "Connect Wallet" }
             </Button>
           </Grid>
         </Grid>
