@@ -4,7 +4,6 @@ import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Marketplace from '../Marketplace.json';
 import { useLocation } from "react-router";
 import axios from 'axios';
-import { store, useGlobalState } from 'state-pool';
 
 export default function SellNFT() {
     const [formParams, updateFormParams] = useState({ name: '', description: '', price: '' });
