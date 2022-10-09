@@ -10,6 +10,7 @@ In order to use marketplace nft's :)
 ## In this folder is the contract with needed functionality from the task assigment
 https://github.com/DeFi-Group1/nft-mint-final-assigment/blob/main/contracts/NFTMarketplace.sol
 ```
+Create .env file from .env-example with your Goerli private key to deploy the contract.
 Deploying new marketplace with this command:
 npx hardhat run --network goerli scripts/deploy.js
 ```

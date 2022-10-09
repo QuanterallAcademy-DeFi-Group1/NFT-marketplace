@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
+require('dotenv').config();
 const fs = require('fs');
 // const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
 
@@ -17,17 +18,9 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    mumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/nAhiCHKvZkhkp4A7PkkCIBON0-BXW26d`,
-      //accounts: [process.env.privateKey]
-    },
-    matic: {
-      url: "https://polygon-mainnet.g.alchemy.com/v2/nAhiCHKvZkhkp4A7PkkCIBON0-BXW26d",
-      //accounts: [process.env.privateKey]
-    },
     goerli: {
-      url: "https://eth-goerli.g.alchemy.com/v2/bB-n0DZwkHePszHa2E_ZuAjWn8FBNJY4",
-      accounts: [ "d95e0675ac65e2b0a465b2c81b2cadf4be44c88c7d3895b33488bb47c596bc00" ]
+      url: process.env.REACT_APP_ALCHEMY_API_URL,
+      accounts: [ process.env.REACT_APP_PRIVATE_KEY ]
     }
   },
   solidity: {
